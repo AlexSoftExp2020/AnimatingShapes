@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct AnimatingShapesApp: App {
+    //MARK: TODO Topic
+    // @State var selection: Topic? = nil
     var body: some Scene {
         WindowGroup {
             //MARK: TODO Continue
