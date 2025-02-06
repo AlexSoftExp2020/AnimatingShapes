@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct ComposingShapesView: View {
+    
+    private let arcCount = 6
+    private let colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ZStack {
+                ForEach(0..<arcCount, id: \.self) { arc in
+                    Circle()
+                }
+            }
+            VStack {
+                
+            }
+        }
     }
 }
 
