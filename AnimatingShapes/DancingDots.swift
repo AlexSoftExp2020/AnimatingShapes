@@ -45,6 +45,41 @@ class BigDot: Identifiable, ObservableObject {
     }
 }
 
+class DotTracker: ObservableObject {
+    @Published var bigDots = [BigDot]()
+    
+    static var colors: [Color] = [.pink, .purple, .mint, .blue, .yellow, .red, .teal, .cyan]
+    static var randomColor: Color {
+        colors.randomElement() ?? .blue
+    }
+    
+    init() {
+        for _ in 0..<100 {
+            bigDots.append(BigDot())
+        }
+    }
+    
+    func randomizePositions() {
+        objectWillChange.send()
+        for bigDot in bigDots {
+            bigDot.offset = CGSize(width: Double.random(in: -50...50), height: Double.random(in: -50...50))
+            bigDot.scale = 2.5
+            bigDot.color = DotTracker.randomColor
+            bigDot.randomizePositions()
+        }
+    }
+    
+    func resetPositions() {
+        objectWillChange.send()
+        for bigDot in bigDots {
+            bigDot.offset = .zero
+            bigDot.scale = 1.0
+            bigDot.color = DotTracker.randomColor
+            bigDot.resetPositions()
+        }
+    }
+}
+
 struct DancingDots: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
