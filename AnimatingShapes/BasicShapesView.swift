@@ -18,6 +18,15 @@ struct BasicShapesView: View {
     }
 }
 
+enum ShapeType: String {
+    case circle = "Circle"
+    case rectangle = "Rectangle"
+    case capsule = "Capsule"
+    case ellipse = "Ellipse"
+    case roundedRectangle = "Rounded Rectangle"
+    case customPath = "Custom Path"
+}
+
 #Preview {
     BasicShapesView()
 }
