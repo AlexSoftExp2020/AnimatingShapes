@@ -87,7 +87,14 @@ struct DancingDots: View {
     
     var body: some View {
         VStack {
-            //MARK: TODO
+            Spacer()
+            LazyVGrid(columns: columns) {
+                //MARK: TODO
+            }
+            .frame(minHeight: 500)
+            .drawingGroup()
+            Spacer()
+            //MARK: TODO PlayResetButton
         }
         .navigationTitle("Dancing Dots")
         .navigationBarTitleDisplayMode(.inline)
