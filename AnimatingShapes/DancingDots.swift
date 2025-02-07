@@ -81,8 +81,17 @@ class DotTracker: ObservableObject {
 }
 
 struct DancingDots: View {
+    private var columns = Array(repeating: GridItem(.flexible()), count: 10)
+    @StateObject var tracker = DotTracker()
+    @State private var isAnimating = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            //MARK: TODO
+        }
+        .navigationTitle("Dancing Dots")
+        .navigationBarTitleDisplayMode(.inline)
+        
     }
 }
 
