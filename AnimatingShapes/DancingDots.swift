@@ -89,12 +89,34 @@ struct DancingDots: View {
         VStack {
             Spacer()
             LazyVGrid(columns: columns) {
-                //MARK: TODO
+                ForEach(tracker.bigDots) { bigDot in
+                    ZStack {
+                        Circle()
+                            .offset(bigDot.offset)
+                            .foregroundColor(bigDot.color)
+                            .scaleEffect(bigDot.scale)
+                        ForEach(bigDot.smallDots) { smallDot in
+                            Circle()
+                                .offset(smallDot.offset)
+                                .foregroundColor(smallDot.color)
+                        }
+                    }
+                }
             }
             .frame(minHeight: 500)
             .drawingGroup()
+            
             Spacer()
-            //MARK: TODO PlayResetButton
+            
+            PlayResetButton(animating: $isAnimating) {
+                withAnimation(.spring(response: 0.6, dampingFraction: 0.5, blendDuration: 1).repeatForever()) {
+                    if isAnimating {
+                        tracker.randomizePositions()
+                    } else {
+                        tracker.resetPositions()
+                    }
+                }
+            }
         }
         .navigationTitle("Dancing Dots")
         .navigationBarTitleDisplayMode(.inline)
