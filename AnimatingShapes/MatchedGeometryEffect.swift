@@ -23,7 +23,21 @@ struct MatchedGeometryEffectView: View {
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            if exchange {
+                circle()
+                rectangle()
+            } else {
+                rectangle()
+                circle()
+            }
+        }
+        .padding()
+        .onTapGesture {
+            withAnimation {
+                exchange.toggle()
+            }
+        }
     }
 }
 
