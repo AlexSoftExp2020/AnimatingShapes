@@ -49,10 +49,15 @@ struct DragNDropDotsView: View {
             }
             PlayResetButton(animating: $isAnimating, resetOnly: true) {
                 withAnimation(.spring(response: 0.6, dampingFraction: 0.5, blendDuration: 1).repeatForever()) {
-                    //MARK: TODO resetValues()
+                    resetValues()
                 }
             }
         }
+    }
+    
+    func resetValues() {
+        scaleFactor = 1
+        offset = .zero
     }
 }
 
