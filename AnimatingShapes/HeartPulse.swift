@@ -63,12 +63,27 @@ struct PulsingHeart: View {
     }
 }
 
-struct HeartPulse: View {
+struct HeartPulseView: View {
+    @State private var pulsing = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Spacer()
+            ZStack {
+                if pulsing {
+                    PulsingHeart()
+                } else {
+                    ResetHeart()
+                }
+            }
+            Spacer()
+            PlayResetButton(animating: $pulsing)
+        }
+        .navigationTitle("Basic Animation")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    HeartPulse()
+    HeartPulseView()
 }
