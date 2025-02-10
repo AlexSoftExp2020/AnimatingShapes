@@ -35,5 +35,5 @@ struct TopicList: View {
 }
 
 #Preview {
-    //MARK: TODO TopicList()
+    TopicList(contentSource: TopicData.homeContent)
 }
