@@ -15,7 +15,13 @@ struct TopicList: View {
         Section {
             List {
                 ForEach(contentSource) { row in
-                    //MARK: TODO NavigationLink(destination: Destination.view, label: <#T##() -> View#>)
+                    NavigationLink(
+                        destination: Destination.view(forSelection: row.destination), label: {
+                            TopicRowView(title: row.title, description: row.description, systemIcon: row.systemSymbol)
+                        })
+                        .fixedSize(horizontal: false, vertical: true)
+                        .listRowInsets(.init(top: 15, leading: 15, bottom: 15, trailing: 15))
+                    
                 }
             }
             .listStyle(InsetGroupedListStyle())
