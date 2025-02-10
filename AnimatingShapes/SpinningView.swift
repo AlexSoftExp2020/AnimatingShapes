@@ -31,8 +31,24 @@ struct SpinningEllipse: View {
 }
 
 struct SpinningView: View {
+    @State private var isSpinning = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Spacer()
+            
+            if isSpinning {
+                SpinningEllipse()
+            } else {
+                ResetEllipse()
+            }
+            
+            Spacer()
+            
+            PlayResetButton(animating: $isSpinning)
+        }
+        .navigationTitle("Spinning Animation")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
