@@ -80,7 +80,7 @@ class DotTracker: ObservableObject {
     }
 }
 
-struct DancingDots: View {
+struct DancingDotsView: View {
     private var columns = Array(repeating: GridItem(.flexible()), count: 10)
     @StateObject var tracker = DotTracker()
     @State private var isAnimating = false
@@ -125,5 +125,5 @@ struct DancingDots: View {
 }
 
 #Preview {
-    DancingDots()
+    DancingDotsView()
 }
