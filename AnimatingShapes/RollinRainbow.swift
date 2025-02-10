@@ -25,11 +25,22 @@ struct RollinRainbowView: View {
             Spacer()
             LazyVGrid(columns: gridColumns) {
                 ForEach(0..<numCircles, id: \.self) { index in
+                    
                     Circle()
                         .foregroundColor(colors[index % colors.count])
                         .scaleEffect(scaleFactor)
-                    // MARK: TODO
+                        .animation(springAnimation.delay((Double(index).truncatingRemainder(dividingBy: 10) / 20)).repeatCount(2, autoreverses: true), value: scaleFactor)
+                        .onTapGesture {
+                            isAnimating = true
+                            scaleFactor = (Double(index + 1) / 4)
+                        }
                 }
+            }
+            
+            Spacer()
+            
+            PlayResetButton(animating: $isAnimating, resetOnly: true) {
+                    scaleFactor = 3
             }
         }
         .navigationTitle("Rollin' Rainbow")
