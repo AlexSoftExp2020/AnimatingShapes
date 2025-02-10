@@ -12,7 +12,11 @@ struct AnimatingShapesApp: App {
     @State var selection: Topic? = nil
     var body: some Scene {
         WindowGroup {
-            //MARK: TODO Continue
+            NavigationSplitView {
+                TopicList(contentSource: TopicData.homeContent)
+            } detail: {
+                Text("Please select a destination")
+            }
         }
     }
 }

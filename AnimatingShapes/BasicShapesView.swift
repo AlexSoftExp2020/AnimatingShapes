@@ -42,7 +42,9 @@ struct BasicShapesView: View {
                         .trim(from: trimStart, to: trimEnd)
                         .tag(ShapeType.roundedRectangle)
                     
-                    //MARK: TODO Heart
+                    Heart()
+                        .trim(from: trimStart, to: trimEnd)
+                        .tag(ShapeType.customPath)
                 }
                 .foregroundStyle(LinearGradient(colors: [.indigo, .teal], startPoint: .bottom, endPoint: .top))
                 .frame(maxWidth: width * 150, maxHeight: height * 150)
