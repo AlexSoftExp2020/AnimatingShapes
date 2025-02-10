@@ -15,6 +15,26 @@ enum Destination: String, CaseIterable {
     case rollingRainbow
     case dragnDropDots
     case dancingDots
+    
+    @ViewBuilder
+    static func view(forSelection selection: Destination) -> some View {
+        switch selection {
+        case .basicShapes:
+            BasicShapesView()
+        case .simpleAnimation:
+            HeartPulseView()
+        case .spinningAnimation:
+           SpinningView()
+        case .explodingAnimation:
+           ExplodingView()
+        case .rollingRainbow:
+            RollinRainbowView()
+        case .dragnDropDots:
+            DragNDropDotsView()
+        case .dancingDots:
+            DancingDotsView()
+        }
+    }
 }
 
 
