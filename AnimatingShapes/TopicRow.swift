@@ -33,5 +33,7 @@ struct TopicRowView: View {
 }
 
 #Preview {
-    TopicRowView()
+    TopicRowView(title: "Animations",
+                 description: "Discover how to use animations to move shapes around the scene",
+                 systemIcon: "circle.fill")
 }
